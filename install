@@ -188,8 +188,8 @@ Dir.chdir "/usr"
 abort "See Linuxbrew: http://linuxbrew.sh/" if RUBY_PLATFORM.to_s.downcase.include?("linux")
 abort "Mac OS X too old, see: https://github.com/mistydemeo/tigerbrew" if macos_version < "10.5"
 # abort "Don't run this as root!" if Process.uid.zero?
-abort <<-EOABORT unless `dsmemberutil checkmembership -U "#{ENV["USER"]}" -G admin`.include? "user is a member"
-This script requires the user #{ENV["USER"]} to be an Administrator.
+abort <<-EOABORT unless `dsmemberutil checkmembership -U "setup" -G admin`.include? "user is a member"
+This script requires the user setup to be an Administrator.
 EOABORT
 # Tests will fail if the prefix exists, but we don't have execution
 # permissions. Abort in this case.
